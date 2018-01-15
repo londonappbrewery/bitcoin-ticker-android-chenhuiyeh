@@ -5,6 +5,7 @@
     <string name="base">Base Currency</string>
     <string name="imageview_desc">Bitcoin Logo</string>
 
+    // spinner options
     <string-array name="currency_array">
         <item>AUD</item>
         <item>BRL</item>

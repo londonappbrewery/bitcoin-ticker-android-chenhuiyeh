@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         Spinner spinner = (Spinner) findViewById(R.id.currency_spinner);
 
         // Create an ArrayAdapter using the String array and a spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+        final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.currency_array, R.layout.spinner_item);
 
         // Specify the layout to use when the list of choices appears
@@ -45,10 +45,20 @@ public class MainActivity extends AppCompatActivity {
         spinner.setAdapter(adapter);
 
         // TODO: Set an OnItemSelected listener on the spinner
+        spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                Log.d("Btcoin", "" + adapterView.getItemAtPosition(i));
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                Log.d("Bitcoin: ", "Nothing selected");
+            }
+        });
     }
+        // TODO: complete the letsDoSomeNetworking() method
 
-    // TODO: complete the letsDoSomeNetworking() method
     private void letsDoSomeNetworking(String url) {
 
 //        AsyncHttpClient client = new AsyncHttpClient();
@@ -77,3 +87,4 @@ public class MainActivity extends AppCompatActivity {
 
 
 }
+
